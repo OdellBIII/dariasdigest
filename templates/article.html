@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - Daria's Digest{% endblock %}
+
+{% block content %}
+<div class="article-page">
+    <div class="back-button-container">
+        <a href="/blog" class="back-button">← Back to Blog</a>
+    </div>
+    
+    <article class="article">
+        <h1 class="article-title">{{ article.title }}</h1>
+        <p class="article-date">Published on {{ article.date.strftime('%B %d, %Y') }}</p>
+        
+        <img src="{{ article.image }}" alt="{{ article.title }}" class="article-hero-image">
+        
+        <div class="article-content">
+            {% for paragraph in article.content.split('\n\n') %}
+                {% if paragraph.strip() %}
+                    <p>{{ paragraph }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </article>
+</div>
+{% endblock %}
