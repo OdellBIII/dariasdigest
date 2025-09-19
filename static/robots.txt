@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Allow crawling of all pages
+Crawl-delay: 1
+
+# Sitemap location (update this URL when deployed)
+# Sitemap: https://dariasdigest.com/sitemap.xml

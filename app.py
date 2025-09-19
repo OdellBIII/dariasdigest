@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from datetime import datetime
 
 app = Flask(__name__)
@@ -37,6 +37,10 @@ def article(article_id):
     if not article:
         return "Article not found", 404
     return render_template('article.html', article=article)
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
